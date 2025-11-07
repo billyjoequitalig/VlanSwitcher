@@ -1,0 +1,79 @@
+﻿@page
+@model VLAN_Switching.Pages.AddPortModel
+@{
+}
+
+<div class="container min-vh-100  align-items-center justify-content-center">
+    <div class="container-fluid col-md-6 justify-content-end">
+         <!-- Added Table Section -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h4 class="text-center">Existing Ports</h4>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th>Switch IP</th>
+                            <th>Port Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Ports != null && Model.Ports.Any())
+                        {
+                            int i = 1;
+                            foreach (var port in Model.Ports)
+                            {
+                                <tr>
+                                    <td>@port.SwitchIP</td>
+                                    <td>@port.PortName</td>
+                                    <td>
+                                        <form method="post">
+                                        <a asp-page-handler="Edit" asp-route-id="@port.Id" class="btn btn-sm btn-warning">Edit</a>
+                                        <button asp-page-handler="Delete" asp-route-id="@port.Id" class="btn btn-sm btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="4" class="text-muted">No ports added yet.</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <h4 class="text-center py-1 mt-5">Add Port</h4>
+        <div class="card mb-3 mb-lg-10">
+            <div class="card-body py-5">
+                <form asp-action="AddUser" method="post">
+                    <div class="row mb-4">
+                        <label class="col-md-4 text-md-end" for="SwitchIP">Switch Ip</label>
+                        <div class="col-md-8 col-lg-6">
+                            <input asp-for="newPort.SwitchIP" class="form-control" placeholder="Switch IP" required />
+                            <span class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <label class="col-md-4 text-md-end" for="PortName">Port</label>
+                        <div class="col-md-8 col-lg-6">
+                            <input asp-for="newPort.PortName" class="form-control" placeholder="Port" required />
+                            <span class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-4"></label>
+                        <div class="col-md-8 col-lg-6">
+                            <button type="submit" class="btn btn-primary d-block w-100">Add Port</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

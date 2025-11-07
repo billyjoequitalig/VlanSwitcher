@@ -1,0 +1,37 @@
+﻿@page
+@model VLAN_Switching.Pages.AddCampaignModel
+@{
+}
+
+<div class="container min-vh-100  align-items-center justify-content-center">
+    <div class="container-fluid col-md-6 justify-content-end">
+        <h1 class="text-center py-1" >Add Campaign</h1>
+        <div class="card mb-3 mb-lg-10">
+            <div class="card-body py-5">
+                <form asp-action="AddUser" method="post">
+                    <div class="row mb-4">
+                        <label class="col-md-4 text-md-end" for="CampaignName">Campaign Name</label>
+                        <div class="col-md-8 col-lg-6">
+                            <input asp-for="newCampagin.Name" class="form-control" placeholder="Campaign Name" required />
+                            <span class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <label class="col-md-4 text-md-end" for="CampaignId">Campaign ID</label>
+                        <div class="col-md-8 col-lg-6">
+                            <input asp-for="newCampagin.VlanId" class="form-control" placeholder="Campaign ID" required />
+                            <span class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label class="col-md-4"></label>
+                        <div class="col-md-8 col-lg-6">
+                            <button type="submit" class="btn btn-primary d-block w-100">Add Campaign</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

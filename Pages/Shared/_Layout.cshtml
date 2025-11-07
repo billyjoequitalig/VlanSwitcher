@@ -1,0 +1,266 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - VLAN_Switching</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/VLAN_Switching.styles.css" asp-append-version="true" />
+
+    <!--Bootstrap icons-->
+    <link href="~/fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+    <!--Google web fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&family=IBM+Plex+Mono:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <!--Simplebar css-->
+    <link rel="stylesheet" href="~/vendor/css/simplebar.min.css">
+    <!--Choices css-->
+    <link rel="stylesheet" href="~/vendor/css/choices.min.css">
+    <!--Date range picker-->
+    <link rel="stylesheet" href="~/vendor/css/daterangepicker.css">
+    <!--Main style-->
+    <link rel="stylesheet" href="~/css/style.min.css">
+</head>
+<body>
+    <header>
+        <div class="d-flex flex-column flex-root">
+            <!--Page-->
+            <div class="page d-flex flex-row flex-column-fluid">
+                <!--///////////Page sidebar begin///////////////-->
+                <aside class="page-sidebar">
+                    <div class="h-100 flex-column d-flex justify-content-start">
+
+                        <!--Aside-logo-->
+                        <div class="aside-logo d-flex align-items-center flex-shrink-0 justify-content-start px-5 position-relative">
+                            <a href="#" class="d-block">
+                                <br />
+                                <div class="d-flex align-items-center flex-no-wrap text-truncate">
+                                    <!--Logo-icon-->
+                                    <img src="~/media/inspiro.png" width="180" height="60" />
+                                </div>
+
+                            </a>
+                        </div>
+                        <!--Sidebar-Menu-->
+                        <div class="aside-menu px-3 my-auto" data-simplebar>
+                            <nav class="flex-grow-1 h-100" id="page-navbar">
+                                <!--:Sidebar nav-->
+                                <ul class="nav flex-column collapse-group collapse d-flex">
+                                    <li class="nav-item sidebar-title text-truncate opacity-50 small">
+                                        <i class="bi bi-three-dots"></i>
+                                        <span>Main</span>
+
+                                    <li class="nav-item">
+                                        <a asp-page="/Terminal" class="nav-link d-flex align-items-center text-truncate ">
+                                            <span class="sidebar-icon">
+                                                <span class="material-symbols-rounded">
+                                                    Computer
+                                                </span>
+                                            </span>
+                                            <!--Sidebar nav text-->
+                                            <span class="sidebar-text">VLAN Switching</span>
+                                        </a>
+                                    </li>
+                                    
+                                    <li class="nav-item">
+                                        <a href="#Campaign" class="nav-link d-flex align-items-center text-truncate " data-bs-toggle="collapse" aria-expanded="false">
+                                            <span class="sidebar-icon">
+                                                <span class="material-symbols-rounded">
+                                                    Person
+                                                </span>
+                                            </span>
+                                            <!--Sidebar nav text-->
+                                            <span class="sidebar-text">Campaign Mangement</span>
+                                        </a>
+                                        <ul id="Campaign" class="collapse sidebar-dropdown list-unstyled mb-0">
+                                            <li class="sidebar-item">
+                                                <a asp-page="/CampaignDetails" aria-expanded="false" class="sidebar-link">Campaign Details</a>
+                                            </li>
+                                        </ul>
+                                        <ul id="Campaign" class="collapse sidebar-dropdown list-unstyled mb-0">
+                                            <li class="sidebar-item">
+                                                <a asp-page="/CampaignConfig" aria-expanded="false" class="sidebar-link">Assign Configuration</a>
+                                            </li>
+                                        </ul>
+                                        <ul id="Campaign" class="collapse sidebar-dropdown list-unstyled mb-0">
+                                            <li class="sidebar-item">
+                                                <a asp-page="/AddCampaign" aria-expanded="false" class="sidebar-link">Add Campagin</a>
+                                            </li>
+                                        </ul>
+                                        <ul id="Campaign" class="collapse sidebar-dropdown list-unstyled mb-0">
+                                            <li class="sidebar-item">
+                                                <a asp-page="/AddPort" aria-expanded="false" class="sidebar-link">Add Switch Port</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+
+                                    <li id="UserManagementItem" class="nav-item" runat="server">
+                                        <a href="#multi-level" class="nav-link d-flex align-items-center text-truncate " data-bs-toggle="collapse" aria-expanded="false">
+                                            <span class="sidebar-icon">
+                                                <span class="material-symbols-rounded">
+                                                    Person
+                                                </span>
+                                            </span>
+                                            <!--Sidebar nav text-->
+                                            <span class="sidebar-text">User Management</span>
+                                        </a>
+                                        <ul id="multi-level" class="collapse sidebar-dropdown list-unstyled mb-0">
+                                            <li class="sidebar-item">
+                                                <a asp-page="/UserManagement" aria-expanded="false" class="sidebar-link">View Users</a>
+                                            </li>
+                                        </ul>
+                                        <ul id="multi-level" class="collapse sidebar-dropdown list-unstyled mb-0">
+                                            <li class="sidebar-item">
+                                                <a asp-page="/AddUser" aria-expanded="false" class="sidebar-link">Add Users</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-page="/Logs" class="nav-link d-flex align-items-center text-truncate ">
+                                            <span class="sidebar-icon">
+                                                <span class="material-symbols-rounded">
+                                                    Analytics
+                                                </span>
+                                            </span>
+                                            <!--Sidebar nav text-->
+                                            <span class="sidebar-text">Logs</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                        </div>
+                    </div>
+                </aside>
+                <!--///////////Page Sidebar End///////////////-->
+                <!--///Sidebar close button for 991px or below devices///-->
+                <div class="sidebar-close d-lg-none">
+                    <a href="#"></a>
+                </div>
+                <!--///.Sidebar close end///-->
+                <!--///////////Page content wrapper///////////////-->
+                <main class="page-content d-flex flex-column flex-row-fluid">
+
+                    <!--//page-header//-->
+                    <header class="navbar mb-3 px-3 px-lg-6 px-3 px-lg-6 align-items-center page-header navbar-expand navbar-light">
+                        <ul class="navbar-nav d-flex align-items-center h-100">
+                            <li class="nav-item d-none d-lg-flex flex-column h-100 me-2 align-items-center justify-content-center" data-tippy-placement="bottom-start" data-tippy-content="Toggle Sidebar">
+                                <a href="javascript:void(0)"
+                                   class="sidebar-trigger nav-link size-40 d-flex align-items-center justify-content-center p-0">
+                                    <span class="material-symbols-rounded">
+                                        menu_open
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ms-auto d-flex align-items-center h-100">
+                            <!--:Dark Mode:-->
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle d-flex align-items-center" id="bs-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static">
+                                    <span class="theme-icon-active d-flex align-items-center">
+                                        <span class="material-symbols-rounded align-middle"></span>
+                                    </span>
+                                </a>
+                                <!--:Dark Mode Options:-->
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bs-theme" style="--bs-dropdown-min-width: 9rem;">
+                                    <li class="mb-1">
+                                        <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light">
+                                            <span class="theme-icon d-flex align-items-center">
+                                                <span class="material-symbols-rounded align-middle me-2">
+                                                    lightbulb
+                                                </span>
+                                            </span>
+                                            Light
+                                        </button>
+                                    </li>
+                                    <li class="mb-1">
+                                        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark">
+                                            <span class="theme-icon d-flex align-items-center">
+                                                <span class="material-symbols-rounded align-middle me-2">
+                                                    dark_mode
+                                                </span>
+                                            </span>
+                                            Dark
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto">
+                                            <span class="theme-icon d-flex align-items-center">
+                                                <span class="material-symbols-rounded align-middle me-2">
+                                                    invert_colors
+                                                </span>
+                                            </span>
+                                            Auto
+                                        </button>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown d-flex align-items-center justify-content-center flex-column h-100">
+                                <a href="#"
+                                   class="nav-link dropdown-toggle height-40 px-2 d-flex align-items-center justify-content-center"
+                                   aria-expanded="false" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                                    <div class="d-flex align-items-center">
+                                        <!--Avatar with status-->
+                                        <div class="avatar-status status-online me-sm-2 avatar xs">
+                                            @* <img src="assets/media/avatars/01.jpg" class="rounded-circle img-fluid" alt=""> *@
+                                        </div>
+                                        <span class="d-none d-md-inline-block">Noah</span>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu mt-0 p-0 dropdown-menu-end overflow-hidden">
+                                    <div class="py-2 px-1">
+                                        <a href="/Logout" class="dropdown-item d-flex align-items-center">
+                                            <span class="material-symbols-rounded align-middle me-2 size-30 fs-5 d-flex align-items-center justify-content-center bg-warning text-white rounded-2">
+                                                logout
+                                            </span>
+                                            <span class="flex-grow-1">Logout</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown ms-3 d-flex d-lg-none align-items-center justify-content-center flex-column h-100">
+                                <a href="javascript:void(0)"
+                                   class="nav-link sidebar-trigger-lg-down size-40 p-0 d-flex align-items-center justify-content-center">
+                                    <span class="material-symbols-rounded align-middle">menu</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </header>
+                    <!--Main Header End-->
+
+                </main>
+
+                <!--///////////Page content wrapper End///////////////-->
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="pb-3 pb-lg-5 px-3 px-lg-6" style="position:fixed; left:50%; bottom:0; transform:translateX(-50%); z-index:1030; width:auto; background:transparent; border:none; box-shadow:none;">
+        <div class="container-fluid px-0 text-center">
+            <span class="d-block lh-sm small text-body-secondary">
+                &copy;
+                <script>
+                    document.write(new Date().getFullYear())
+                </script>. Copyright
+            </span>
+        </div>
+
+    </footer>
+
+    <!--////////////Theme Core scripts Start/////////////////-->
+    <script src="~/js/theme.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

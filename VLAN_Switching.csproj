@@ -1,0 +1,78 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\net8.0\appsettings.Development.json" />
+    <Content Include="bin\Debug\net8.0\appsettings.json" />
+    <Content Include="bin\Debug\net8.0\VLAN_Switching.deps.json" />
+    <Content Include="bin\Debug\net8.0\VLAN_Switching.runtimeconfig.json" />
+    <Content Include="bin\Debug\net8.0\VLAN_Switching.staticwebassets.endpoints.json" />
+    <Content Include="bin\Debug\net8.0\VLAN_Switching.staticwebassets.runtime.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\net8.0\VLAN_Switching.dll" />
+    <None Include="bin\Debug\net8.0\VLAN_Switching.exe" />
+    <None Include="bin\Debug\net8.0\VLAN_Switching.pdb" />
+    <None Include="bin\Microsoft.ReportViewer.Common.dll" />
+    <None Include="bin\Microsoft.ReportViewer.Common.dll.refresh" />
+    <None Include="bin\Microsoft.ReportViewer.DataVisualization.dll" />
+    <None Include="bin\Microsoft.ReportViewer.DataVisualization.dll.refresh" />
+    <None Include="bin\Microsoft.ReportViewer.ProcessingObjectModel.dll" />
+    <None Include="bin\Microsoft.ReportViewer.ProcessingObjectModel.dll.refresh" />
+    <None Include="bin\Microsoft.ReportViewer.WebForms.dll" />
+    <None Include="bin\Microsoft.ReportViewer.WebForms.dll.refresh" />
+    <None Include="bin\Telerik.Web.UI.dll" />
+    <None Include="bin\Telerik.Web.UI.dll.refresh" />
+    <None Include="bin\Telerik.Web.UI.Skins.dll" />
+    <None Include="bin\VentusLibrary.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common">
+      <HintPath>bin\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization">
+      <HintPath>bin\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel">
+      <HintPath>bin\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms">
+      <HintPath>bin\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI">
+      <HintPath>bin\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI.Skins">
+      <HintPath>bin\Telerik.Web.UI.Skins.dll</HintPath>
+    </Reference>
+    <Reference Include="VentusLibrary">
+      <HintPath>bin\VentusLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Helper\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="SSH.NET" Version="2025.0.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.9" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+    <PackageReference Include="System.DirectoryServices" Version="9.0.9" />
+  </ItemGroup>
+
+</Project>

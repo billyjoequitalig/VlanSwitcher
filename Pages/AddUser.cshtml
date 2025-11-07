@@ -1,0 +1,86 @@
+﻿@page
+@model VLAN_Switching.Pages.AddUserModel
+@{
+}
+
+<div class="container min-vh-100  align-items-center justify-content-center">
+    <div class="container-fluid col-md-6 justify-content-end">
+        <div class="card mb-3 mb-lg-10">
+            <div class="card-body py-5">
+                <form method="post">
+
+                    <div class="row mb-4">
+                        <label class="col-md-4 text-md-end" for="idNumner">ID Number</label>
+                        <div class="col-md-8 col-lg-6">
+                            <input asp-for="newUser.IdNumber" class="form-control" placeholder="ID Number" required />
+                            <span  class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <label class="col-md-4 text-md-end" for="Fullname">Full Name</label>
+                        <div class="col-md-8 col-lg-6">
+                            <input asp-for="newUser.FullName" class="form-control" placeholder="Full Name" required />
+                            <span class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <label class="col-md-4 text-md-end" for="ntaccount">NTAccount</label>
+                        <div class="col-md-8 col-lg-6">
+                            <input asp-for="newUser.NTlogin"  class="form-control" placeholder="NT Account" required />
+                            <span  class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <label class="col-md-4 text-md-end" for="ntaccount">Campaign Name</label>
+                        <div class="col-md-8 col-lg-6">
+                            <select asp-for="newUser.CampaignId" class="form-select" required>
+                                <option value="" disabled selected>Choose...</option>
+                                @foreach(var campaign in Model.Campaigns){
+                                    <option value="@campaign.Id">@campaign.Name</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <label class="col-md-4 text-md-end" for="switchport">Switch Port</label>
+                        <div class="col-md-8 col-lg-6">
+                            <select asp-for="newUser.SwitchPortId" class="form-select" required>
+                                <option value="" disabled selected>Choose...</option>
+                                @foreach (var port in Model.Ports)
+                                {
+                                    <option value="@port.Id">@port.PortName</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <label class="col-md-4 text-md-end" for="accessType">Access Type</label>
+                        <div class="col-md-8 col-lg-6">
+                            <select asp-for="newUser.RoleID" class="form-select" required>
+                                <option value="" disabled selected>Choose...</option>
+                                @foreach (var role in Model.role)
+                                {
+                                    <option value="@role.RoleID">@role.Role</option>
+                                }
+                            </select>
+                            <span class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-4"></label>
+                        <div class="col-md-8 col-lg-6">
+                            <button type="submit" class="btn btn-primary d-block w-100">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

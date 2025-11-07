@@ -1,0 +1,61 @@
+﻿@page
+@model VLAN_Switching.Pages.CampaignConfigModel
+@{
+}
+
+<div class="container min-vh-100  align-items-center justify-content-center">
+    <div class="container-fluid col-md-6 justify-content-end">
+        <h1 class="text-center py-1">Assign Configuration</h1>
+        <div class="card mb-3 mb-lg-10">
+            <div class="card-body py-5">
+                <form asp-action="AddUser" method="post">
+                    <div class="row mb-4">
+                        <label class="col-md-4 text-md-end" for="accessType">Select Agent</label>
+                        <div class="col-md-8 col-lg-6">
+                            <select asp-for="newUser.Id" class="form-select" required>
+                                <option value="" disabled selected>Choose...</option>
+                                @foreach (var users in Model.Users)
+                                {
+                                    <option value="@users.Id">@users.FullName</option>
+                                }
+                            </select>
+                            <span class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <label class="col-md-4 text-md-end" for="accessType">Select Campaign</label>
+                        <div class="col-md-8 col-lg-6">
+                            <select asp-for="newUser.CampaignId" class="form-select" required>
+                                <option value="" disabled selected>Choose...</option>
+                                @foreach (var campaign in Model.Campaigns)
+                                {
+                                    <option value="@campaign.Id">@campaign.Name</option>
+                                }
+                            </select>
+                            <span class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <label class="col-md-4 text-md-end" for="accessType">Select Port</label>
+                        <div class="col-md-8 col-lg-6">
+                            <select asp-for="newUser.SwitchPortId" class="form-select" required>
+                                <option value="" disabled selected>Choose...</option>
+                                @foreach (var port in Model.Ports)
+                                {
+                                    <option value="@port.Id">@port.PortName</option>
+                                }
+                            </select>
+                            <span class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-4"></label>
+                        <div class="col-md-8 col-lg-6">
+                            <button type="submit" class="btn btn-primary d-block w-100">Assign</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+﻿@page
+@model VLAN_Switching.Pages.CampaignDetailsModel
+@{
+}
+
+<div class="container min-vh-100  align-items-center justify-content-center">
+    <div class="row w-100 justify-content-center">
+        <div class="col-md-6 d-flex justify-content-end">
+            <div class="card shadow-lg p-4 me-md-3" style="min-width: 350px; max-width: 500px; border-radius: 1rem; background: #fff;">
+                <h2 class="text-center mb-4" style="font-family: 'Hanken Grotesk', sans-serif;">Campaign Details</h2>
+                <div class="row mb-3">
+                    <div class="col-6 text-end fw-semibold text-secondary">Hostname / IP:</div>
+                    <div class="col-6 text-start">@Model.LocalMachineIP</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-6 text-end fw-semibold text-secondary">Current VLAN ID:</div>
+                    <div class="col-6 text-start">123</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-6 text-end fw-semibold text-secondary">Current VLAN Port:</div>
+                    <div class="col-6 text-start">Fa0/28</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-6 text-end fw-semibold text-secondary">VLAN Campaign:</div>
+                    <div class="col-6 text-start">Marketing</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-6 text-end fw-semibold text-secondary">Assigned User:</div>
+                    <div class="col-6 text-start">Jane Doe</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-6 text-end fw-semibold text-secondary">Status</div>
+                    <div class="col-6 text-start text-success">Success</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 d-flex justify-content-start">
+            <div class="card shadow p-4 mt-0 ms-md-3" style="min-width: 350px; max-width: 450px; border-radius: 1rem; background: #f8fafc;">
+                <h4 class="text-center mb-3" style="font-family: 'Hanken Grotesk', sans-serif;">Ping Host Result</h4>
+                <form method="post" class="mb-3">
+                    <div class="input-group">
+                        <input asp-for="IpAddress" class="form-control" placeholder="Enter Hostname or IP" />
+                        <button name="Action" value="Ping" type="submit" class="btn btn-primary">Ping</button>
+                    </div>
+                </form>
+                <div class="row mb-2">
+                    <div class="col-6 text-end fw-semibold text-secondary">IP Address:</div>
+                    <div class="col-6 text-start">@Model.IpAddress</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-6 text-end fw-semibold text-secondary">Status:</div>
+                    @if (Model.Status == "Success")
+                    {
+                        <div class="col-6 text-start text-success">@Model.Status</div>
+                    }else
+                    {
+                        <div class="col-6 text-start text-danger">@Model.Status</div>
+                    }
+                </div>
+                <div class="row mb-2">
+                    <div class="col-6 text-end fw-semibold text-secondary">Response Time:</div>
+                    <div class="col-6 text-start">@Model.AverageResponseTime</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-6 text-end fw-semibold text-secondary">Time to Time Live:</div>
+                    <div class="col-6 text-start">@Model.Ttl</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-6 text-end fw-semibold text-secondary">Packet Loss:</div>
+                    <div class="col-6 text-start">@Model.PacketLossPercent</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

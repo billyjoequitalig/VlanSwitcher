@@ -1,0 +1,183 @@
+﻿@page
+@model VLAN_Switching.Pages.LoginModel
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <!--Bootstrap icons-->
+    <link href="~/fonts/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+    <!--Google web fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&family=IBM+Plex+Mono:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="~/css/style.min.css">
+</head>
+
+<body>
+    <!--:Dark Mode:-->
+    <div class="position-absolute z-3 w-auto h-auto end-0 top-0 mt-4 me-4">
+        <div class="dropdown">
+            <a href="#" class="nav-link dropdown-toggle d-flex align-items-center" id="bs-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static">
+                <span class="theme-icon-active d-flex align-items-center">
+                    <span class="material-symbols-rounded align-middle"></span>
+                </span>
+            </a>
+            <!--:Dark Mode Options:-->
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bs-theme" style="--bs-dropdown-min-width: 9rem;">
+                <li class="mb-1">
+                    <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light">
+                        <span class="theme-icon d-flex align-items-center">
+                            <span class="material-symbols-rounded align-middle me-2">
+                                lightbulb
+                            </span>
+                        </span>
+                        Light
+                    </button>
+                </li>
+                <li class="mb-1">
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark">
+                        <span class="theme-icon d-flex align-items-center">
+                            <span class="material-symbols-rounded align-middle me-2">
+                                dark_mode
+                            </span>
+                        </span>
+                        Dark
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto">
+                        <span class="theme-icon d-flex align-items-center">
+                            <span class="material-symbols-rounded align-middle me-2">
+                                invert_colors
+                            </span>
+                        </span>
+                        Auto
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--Page decoration bg-->
+    <svg class="position-absolute start-50 top-50 translate-middle w-100 h-auto"
+         width="100%" height="100%" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+
+        <!-- Background gradient -->
+        <defs>
+            <radialGradient id="bgGradient" cx="50%" cy="50%" r="80%">
+                <stop offset="0%" stop-color="#0f2027" />
+                <stop offset="50%" stop-color="#203a43" />
+                <stop offset="100%" stop-color="#2c5364" />
+            </radialGradient>
+
+            <!-- Glow blur -->
+            <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="60" />
+            </filter>
+        </defs>
+
+        <!-- Background fill -->
+        <rect width="100%" height="100%" fill="url(#bgGradient)" />
+
+        <!-- Fancy glowing blobs -->
+        <circle cx="200" cy="300" r="150" fill="#00ffcc" opacity="0.3" filter="url(#blur)" />
+        <circle cx="600" cy="200" r="120" fill="#ff00cc" opacity="0.25" filter="url(#blur)" />
+        <circle cx="400" cy="450" r="100" fill="#ffff00" opacity="0.2" filter="url(#blur)" />
+
+        <!-- Optional light flare effect -->
+        <circle cx="400" cy="300" r="300" fill="white" opacity="0.05" />
+
+    </svg>
+
+    <div class="d-flex flex-column flex-root">
+        <!--Page-->
+        <div class="page d-flex flex-row flex-column-fluid">
+
+            <!--///////////Page content wrapper///////////////-->
+            <main class="page-content overflow-hidden ms-0 d-flex flex-column flex-row-fluid">
+                <!--//content//-->
+                <div class="content p-1 d-flex flex-column-fluid position-relative">
+                    <div class="container py-lg-12">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-md-8 col-lg-5 col-xl-4">
+                                <!--Card-->
+                                <div class="card card-body p-4">
+                                    <h4 class="text-center">Welcome Back!</h4>
+                                    <p class="mb-4 text-body-secondary text-center">
+                                        Please Sign In
+                                    </p>
+                                    <form method="post">
+                                        @* <form action="index.html" class=" z-1 position-relative " novalidate=""> *@
+                                        <div class="form-floating mb-3">
+                                            <input asp-for="txtNTLogin"
+                                                   type="text"
+                                                   class="form-control"
+                                                   id="floatingInput"
+                                                   placeholder="Name.Lastname">
+                                            <label for="floatingInput">NTLogin</label>
+                                            <span class="invalid-feedback">Please Enter you NTLogin</span>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input asp-for="txtPassword"
+                                                    required=""
+                                                   type="password" class="form-control"
+                                                   id="floatingPassword" placeholder="Password">
+                                            <label for="floatingPassword">Password</label>
+                                            <span class="invalid-feedback">Enter the password</span>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <p>@Model.TempData["InactiveUserAlert"]</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between mb-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input me-1" id="terms" type="checkbox"
+                                                       value="">
+                                                <label class="form-check-label" for="terms">Remember Me</label>
+                                            </div>
+                                        </div>
+
+
+                                        <button name="Action" value="Login" class="w-100 btn btn-lg btn-primary" type="submit">Sign In</button>
+                                        <hr class="mt-4 mb-3">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--///////////Page content wrapper end///////////////-->
+                <!--//Page-footer//-->
+                <footer class="pb-3 pb-lg-5 px-3 px-lg-6" style="position:fixed; left:50%; bottom:0; transform:translateX(-50%); z-index:1030; width:auto; background:transparent; border:none; box-shadow:none;">
+                    <div class="container-fluid px-0 text-center">
+                        <span class="d-block lh-sm small text-body-secondary">
+                            &copy;
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>. Copyright
+                        </span>
+                    </div>
+                </footer>
+                <!--/.Page Footer End-->
+            </main>
+        </div>
+    </div>
+
+    <!--////////////Theme Core scripts Start/////////////////-->
+    <script src="~/js/theme.bundle.min.js"></script>
+
+    <!--////////////Theme Core scripts End/////////////////-->
+
+</body>
+
+</html>
